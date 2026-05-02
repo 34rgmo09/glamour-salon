@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glamour Hair & Beauty Salon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Glamour <span>&</span> Beauty</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-book" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+  <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#booking" onclick="closeMobileMenu()">Book</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="#booking" class="mob-book" onclick="closeMobileMenu()">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">✦ Luxury Hair & Beauty — Est. 2019</p>
+    <h1 class="hero-title">
+      Where Beauty<br>
+      Meets <em>Artistry</em>
+    </h1>
+    <p class="hero-desc">
+      Experience the finest in hair and beauty care. Our expert stylists craft personalised looks that celebrate your unique essence.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Appointment</button>
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div>
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Expert Stylists</div>
+      </div>
+      <div>
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Rated Salon</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-img-bg"></div>
+    <div class="hero-visual">
+      <div class="decorative-circle"></div>
+      <div class="decorative-circle-2"></div>
+      <div class="center-text">
+        <div class="big-letter">G</div>
+        <div class="center-badge">
+          <div class="badge-title">Glamour Salon</div>
+          <div class="badge-sub">Premium Beauty Experience</div>
+        </div>
+      </div>
+      <div class="floating-tag floating-tag-1">
+        <div class="tag-label">Today's Special</div>
+        <div class="tag-value">20% off Colour</div>
+      </div>
+      <div class="floating-tag floating-tag-2">
+        <div class="tag-label">Open Now</div>
+        <div class="tag-value">7am – 9pm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services reveal" id="services">
+  <div class="section-header">
+    <div>
+      <p class="section-tag">✦ What We Offer</p>
+      <h2 class="section-title">Our <em>Signature</em><br>Services</h2>
+    </div>
+    <a href="#" class="view-all">View All Services</a>
+  </div>
+  <div class="services-grid">
+
+    <!-- Hair Styling -->
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Hair Styling</div>
+      <p class="service-desc">From precision cuts to creative styles, our stylists bring your vision to life.</p>
+      <div class="service-price">From $35</div>
+      <button class="service-toggle" onclick="toggleOptions(this)">
+        <span class="arrow">›</span> View Styles
+      </button>
+      <div class="service-options">
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-style"> Box Braids</label><span class="option-price">$80+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-style"> Knotless Braids</label><span class="option-price">$100+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-style"> Twist Out</label><span class="option-price">$45+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-style"> Blowout & Press</label><span class="option-price">$55+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-style"> Bantu Knots</label><span class="option-price">$50+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-style"> Trim & Shape</label><span class="option-price">$35+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-style"> Cornrows</label><span class="option-price">$60+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-style"> Locs Maintenance</label><span class="option-price">$70+</span></div>
+      </div>
+    </div>
+
+    <!-- Hair Colouring -->
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <div class="service-name">Hair Colouring</div>
+      <p class="service-desc">Premium colour services using hair-healthy products for vibrant, lasting results.</p>
+      <div class="service-price">From $80</div>
+      <button class="service-toggle" onclick="toggleOptions(this)">
+        <span class="arrow">›</span> View Options
+      </button>
+      <div class="service-options">
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-colour"> Balayage</label><span class="option-price">$120+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-colour"> Full Highlights</label><span class="option-price">$100+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-colour"> Ombre</label><span class="option-price">$110+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-colour"> Full Colour</label><span class="option-price">$80+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-colour"> Root Touch-Up</label><span class="option-price">$60+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="hair-colour"> Colour Correction</label><span class="option-price">$150+</span></div>
+      </div>
+    </div>
+
+    <!-- Nail Care -->
+    <div class="service-card">
+      <div class="service-icon">💅</div>
+      <div class="service-name">Nail Care</div>
+      <p class="service-desc">Beautifully crafted nails by our certified nail technicians.</p>
+      <div class="service-price">From $25</div>
+      <button class="service-toggle" onclick="toggleOptions(this)">
+        <span class="arrow">›</span> View Options
+      </button>
+      <div class="service-options">
+        <div class="option-item"><label class="option-label"><input type="radio" name="nail"> Classic Manicure</label><span class="option-price">$25+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="nail"> Gel Manicure</label><span class="option-price">$40+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="nail"> Acrylic Full Set</label><span class="option-price">$55+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="nail"> Nail Art</label><span class="option-price">$15+ add-on</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="nail"> Pedicure</label><span class="option-price">$35+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="nail"> Gel Pedicure</label><span class="option-price">$50+</span></div>
+      </div>
+    </div>
+
+    <!-- Facial Treatments -->
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <div class="service-name">Facial Treatments</div>
+      <p class="service-desc">Rejuvenating facials tailored to your skin type, leaving you glowing and refreshed.</p>
+      <div class="service-price">From $60</div>
+      <button class="service-toggle" onclick="toggleOptions(this)">
+        <span class="arrow">›</span> View Treatments
+      </button>
+      <div class="service-options">
+        <div class="option-item"><label class="option-label"><input type="radio" name="facial"> Classic Facial</label><span class="option-price">$60+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="facial"> Deep Cleanse</label><span class="option-price">$75+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="facial"> Brightening Facial</label><span class="option-price">$85+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="facial"> Anti-Aging Treatment</label><span class="option-price">$100+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="facial"> Hydrating Mask</label><span class="option-price">$70+</span></div>
+      </div>
+    </div>
+
+    <!-- Lash & Brow -->
+    <div class="service-card">
+      <div class="service-icon">👁️</div>
+      <div class="service-name">Lash & Brow</div>
+      <p class="service-desc">Perfectly framed eyes with our lash and brow services.</p>
+      <div class="service-price">From $45</div>
+      <button class="service-toggle" onclick="toggleOptions(this)">
+        <span class="arrow">›</span> View Options
+      </button>
+      <div class="service-options">
+        <div class="option-item"><label class="option-label"><input type="radio" name="lash"> Classic Lash Extensions</label><span class="option-price">$80+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="lash"> Volume Lashes</label><span class="option-price">$100+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="lash"> Lash Lift & Tint</label><span class="option-price">$65+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="lash"> Brow Shaping</label><span class="option-price">$25+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="lash"> Brow Tint</label><span class="option-price">$20+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="lash"> Brow Lamination</label><span class="option-price">$55+</span></div>
+      </div>
+    </div>
+
+    <!-- Head Massage -->
+    <div class="service-card">
+      <div class="service-icon">💆</div>
+      <div class="service-name">Head Massage</div>
+      <p class="service-desc">Ease tension and promote healthy hair growth with our relaxing scalp treatments.</p>
+      <div class="service-price">From $30</div>
+      <button class="service-toggle" onclick="toggleOptions(this)">
+        <span class="arrow">›</span> View Options
+      </button>
+      <div class="service-options">
+        <div class="option-item"><label class="option-label"><input type="radio" name="massage"> Scalp Massage (30 min)</label><span class="option-price">$30+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="massage"> Deep Oil Treatment (45 min)</label><span class="option-price">$50+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="massage"> Aromatherapy Scalp (60 min)</label><span class="option-price">$70+</span></div>
+        <div class="option-item"><label class="option-label"><input type="radio" name="massage"> Hot Towel & Scalp Ritual</label><span class="option-price">$60+</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <p class="testimonial-text" id="testimonial-text">
+    "I've been coming to Glamour for two years and I wouldn't go anywhere else. Every visit feels like a treat — the stylists truly listen and the results are always beyond my expectations."
+  </p>
+  <p class="testimonial-author" id="testimonial-author">— Amara D., Loyal Client</p>
+  <div class="testimonial-dots">
+    <div class="dot active" onclick="changeTesti(0)"></div>
+    <div class="dot" onclick="changeTesti(1)"></div>
+    <div class="dot" onclick="changeTesti(2)"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery reveal" id="gallery">
+  <div class="section-header">
+    <div>
+      <p class="section-tag">✦ Our Work</p>
+      <h2 class="section-title">A Glimpse of <em>Glamour</em></h2>
+    </div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(0)">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Hair Styling" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" />
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Blowout & Press<br><small>Hair Styling</small></div></div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(1)">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="Hair Colouring" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" />
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Hair Colouring<br><small>Highlights & Colour</small></div></div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(2)">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80" alt="Nail Care" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" />
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Nail Care<br><small>Manicure & Polish</small></div></div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(3)">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80" alt="Facial Treatment" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" />
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Facial Treatment<br><small>Skin Care</small></div></div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(4)">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80" alt="Lash & Brow" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" />
+      <div class="gallery-overlay"><div class="gallery-overlay-text">Lash & Brow<br><small>Extensions & Shaping</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" style="width:100%;border-radius:2px;object-fit:cover;" />
+    <div class="lightbox-caption" id="lightbox-caption">Box Braids</div>
+    <div class="lightbox-nav">
+      <button onclick="prevLight()">← Prev</button>
+      <button onclick="nextLight()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-tag">✦ Client Love</p>
+      <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+    </div>
+  </div>
+  <div class="reviews-grid" id="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I've been coming to Glamour for two years. Every visit feels like a treat — the stylists truly listen!"</p>
+      <div class="review-author">Amara D.</div>
+      <div class="review-date">April 2026</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My balayage looked straight off Pinterest. I get compliments every single day!"</p>
+      <div class="review-author">Sophie K.</div>
+      <div class="review-date">March 2026</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Best facial I've ever had. My skin has never looked better. Absolutely love this place!"</p>
+      <div class="review-author">Lena M.</div>
+      <div class="review-date">March 2026</div>
+    </div>
+  </div>
+
+  <div class="review-form-section reveal">
+    <h3 class="review-form-title">Leave a <em>Review</em></h3>
+    <p class="review-form-sub">Had a great experience? We'd love to hear from you!</p>
+    <div class="star-picker" id="starPicker">
+      <span onclick="setStars(1)">★</span>
+      <span onclick="setStars(2)">★</span>
+      <span onclick="setStars(3)">★</span>
+      <span onclick="setStars(4)">★</span>
+      <span onclick="setStars(5)">★</span>
+    </div>
+    <div class="review-inputs">
+      <input id="r-name" type="text" placeholder="Your name" />
+      <input id="r-service" type="text" placeholder="Service received" />
+    </div>
+    <textarea class="review-textarea" id="r-text" placeholder="Tell us about your experience..."></textarea>
+    <br/>
+    <button class="review-submit" onclick="submitReview()">Submit Review</button>
+    <div class="review-thanks" id="review-thanks">✨ Thank you for your review!</div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-left">
+    <p class="section-tag">✦ Reserve Your Spot</p>
+    <h2 class="section-title">Book Your <em>Visit</em></h2>
+    <p class="booking-desc">Ready to treat yourself? Fill in the form and we'll confirm your appointment within 24 hours. Walk-ins also welcome!</p>
+    <div class="contact-info">
+      <div class="contact-item"><span>📍</span><span>123 Beauty Lane, Glamour City</span></div>
+      <div class="contact-item"><span>📞</span><span>+254 (555) 987-6543</span></div>
+      <div class="contact-item"><span>🕐</span><span>Mon–Sat: 7am–9pm | Sun: 7am–9pm</span></div>
+      <div class="contact-item"><span>📧</span><span>hello@glamourbeauty.com</span></div>
+    </div>
+  </div>
+  <div class="booking-form" id="contact">
+    <div class="form-title">Book an Appointment</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input id="f-firstname" type="text" placeholder="Jane" />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input id="f-lastname" type="text" placeholder="Smith" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input id="f-email" type="email" placeholder="jane@email.com" />
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input id="f-phone" type="tel" placeholder="+1 555 000 0000" />
+    </div>
+    <div class="form-group">
+      <label>Service</label>
+      <select id="f-service">
+        <option value="">Select a service</option>
+        <optgroup label="✂️ Hair Styling">
+          <option>Box Braids</option>
+          <option>Knotless Braids</option>
+          <option>Twist Out</option>
+          <option>Blowout & Press</option>
+          <option>Bantu Knots</option>
+          <option>Trim & Shape</option>
+          <option>Cornrows</option>
+          <option>Locs Maintenance</option>
+        </optgroup>
+        <optgroup label="🎨 Hair Colouring">
+          <option>Balayage</option>
+          <option>Full Highlights</option>
+          <option>Ombre</option>
+          <option>Full Colour</option>
+          <option>Root Touch-Up</option>
+          <option>Colour Correction</option>
+        </optgroup>
+        <optgroup label="💅 Nail Care">
+          <option>Classic Manicure</option>
+          <option>Gel Manicure</option>
+          <option>Acrylic Full Set</option>
+          <option>Nail Art (Add-on)</option>
+          <option>Pedicure</option>
+          <option>Gel Pedicure</option>
+        </optgroup>
+        <optgroup label="✨ Facial Treatments">
+          <option>Classic Facial</option>
+          <option>Deep Cleanse Facial</option>
+          <option>Brightening Facial</option>
+          <option>Anti-Aging Treatment</option>
+          <option>Hydrating Mask</option>
+        </optgroup>
+        <optgroup label="👁️ Lash & Brow">
+          <option>Classic Lash Extensions</option>
+          <option>Volume Lashes</option>
+          <option>Lash Lift & Tint</option>
+          <option>Brow Shaping</option>
+          <option>Brow Tint</option>
+          <option>Brow Lamination</option>
+        </optgroup>
+        <optgroup label="💆 Head Massage">
+          <option>Scalp Massage (30 min)</option>
+          <option>Deep Oil Treatment (45 min)</option>
+          <option>Aromatherapy Scalp (60 min)</option>
+          <option>Hot Towel & Scalp Ritual</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Preferred Date</label>
+        <input id="f-date" type="date" />
+      </div>
+      <div class="form-group">
+        <label>Preferred Time</label>
+        <input id="f-time" type="time" />
+      </div>
+    </div>
+    <div id="form-error" style="color:#c4816a;font-size:0.8rem;margin-top:0.5rem;display:none;">Please fill in all required fields.</div>
+    <button class="submit-btn" onclick="submitBooking()">Request Appointment</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Glamour <span>&</span> Beauty</div>
+      <p class="footer-desc">A luxury hair and beauty salon dedicated to making every client feel confident, beautiful, and celebrated.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#booking">Book Now</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Gallery</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Follow Us</div>
+      <ul class="footer-links">
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Pinterest</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Glamour Hair & Beauty. All rights reserved.</span>
+    <span>Built with ♥</span>
+  </div>
+</footer>
+
+<!-- CONFIRMATION OVERLAY -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-icon">✨</div>
+    <h2 class="confirm-title">You're <em>Booked!</em></h2>
+    <p class="confirm-msg">Thank you, <span id="confirm-client-name"></span>! Your appointment request has been received.</p>
+    <p class="confirm-msg">We'll confirm your <strong id="confirm-service"></strong> appointment via email within 24 hours.</p>
+    <br/>
+    <p class="confirm-msg" style="font-size:0.78rem;">📞 Questions? Call us at +254 (555) 987-6543</p>
+    <br/>
+    <button class="confirm-close" onclick="closeConfirm()">Done</button>
+  </div>
+</div>
+
+<!-- CHATBOT -->
+<div class="chat-bubble">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div>
+        <div class="chat-header-title">✨ Glamour Assistant</div>
+        <div class="chat-header-sub">Ask me anything!</div>
+      </div>
+      <button class="chat-close" onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg bot">Hi! 👋 Welcome to Glamour Hair & Beauty. How can I help you today?</div>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendMsg()" />
+      <button class="chat-send" onclick="sendMsg()">➤</button>
+    </div>
+  </div>
+  <button class="chat-toggle" onclick="toggleChat()">💬</button>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
