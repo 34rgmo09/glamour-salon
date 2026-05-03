@@ -70,42 +70,63 @@
     btn.classList.toggle('open');
     const opts = btn.nextElementSibling;
     opts.classList.toggle('open');
+    }
+ // Chat — rule-based (free, no API needed)
+  const rules = [
+    { keywords: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
+      reply: "Hi there! 👋 Welcome to Glamour Hair & Beauty! How can I help you today?" },
+    { keywords: ['hour', 'open', 'close', 'time', 'when'],
+      reply: "We're open every day from 7am to 9pm — including weekends! 🕖" },
+    { keywords: ['location', 'address', 'where', 'find you', 'directions'],
+      reply: "You can find us at 123 Beauty Lane, Glamour City. Feel free to call us too: +254 (555) 987-6543 📍" },
+    { keywords: ['phone', 'call', 'contact', 'number'],
+      reply: "You can reach us at +254 (555) 987-6543 or email hello@glamourbeauty.com 📞" },
+    { keywords: ['book', 'appointment', 'reserve', 'schedule'],
+      reply: "To book an appointment, scroll down to our booking form and fill in your details — we'll confirm within 24 hours! 📅" },
+    { keywords: ['price', 'cost', 'how much', 'fee', 'charge'],
+      reply: "Here's a quick overview of our prices:\n\n✂️ Hair Styling from $35\n🎨 Hair Colouring from $80\n💅 Nail Care from $25\n✨ Facials from $60\n👁️ Lash & Brow from $45\n💆 Head Massage from $30\n\nScroll up to Services for full details!" },
+    { keywords: ['hair', 'braid', 'cornrow', 'loc', 'blowout', 'twist', 'cut', 'style'],
+      reply: "Our hair styling services include Box Braids ($80+), Knotless Braids ($100+), Cornrows ($60+), Twist Out ($45+), Blowout & Press ($55+), Locs Maintenance ($70+) and more! ✂️" },
+    { keywords: ['colour', 'color', 'highlight', 'balayage', 'ombre', 'dye'],
+      reply: "We offer Balayage ($120+), Full Highlights ($100+), Ombre ($110+), Full Colour ($80+), Root Touch-Up ($60+) and Colour Correction ($150+)! 🎨" },
+    { keywords: ['nail', 'manicure', 'pedicure', 'acrylic', 'gel'],
+      reply: "Our nail services include Classic Manicure ($25+), Gel Manicure ($40+), Acrylic Full Set ($55+), Pedicure ($35+), Gel Pedicure ($50+) and Nail Art ($15+ add-on)! 💅" },
+    { keywords: ['facial', 'skin', 'face', 'glow', 'brightening', 'cleanse'],
+      reply: "We have Classic Facial ($60+), Deep Cleanse ($75+), Brightening Facial ($85+), Anti-Aging Treatment ($100+) and Hydrating Mask ($70+)! ✨" },
+    { keywords: ['lash', 'brow', 'eyebrow', 'extension', 'lamination', 'tint', 'lift'],
+      reply: "Our Lash & Brow services include Classic Extensions ($80+), Volume Lashes ($100+), Lash Lift & Tint ($65+), Brow Shaping ($25+), Brow Tint ($20+) and Brow Lamination ($55+)! 👁️" },
+    { keywords: ['massage', 'scalp', 'head', 'relax'],
+      reply: "We offer Scalp Massage 30min ($30+), Deep Oil Treatment 45min ($50+), Aromatherapy Scalp 60min ($70+) and Hot Towel & Scalp Ritual ($60+)! 💆" },
+    { keywords: ['email', 'mail'],
+      reply: "You can email us at hello@glamourbeauty.com and we'll get back to you shortly! 📧" },
+    { keywords: ['thank', 'thanks', 'appreciate'],
+      reply: "You're so welcome! 😊 Is there anything else I can help you with?" },
+    { keywords: ['bye', 'goodbye', 'see you'],
+      reply: "Goodbye! We can't wait to see you at Glamour Hair & Beauty! ✨" },
+  ];
+
+  function getRuleBasedReply(text) {
+    const lower = text.toLowerCase();
+    for (const rule of rules) {
+      if (rule.keywords.some(k => lower.includes(k))) {
+        return rule.reply;
+      }
+    }
+    return "I'm not sure about that, but our team can help! 😊 Call us at +254 (555) 987-6543 or email hello@glamourbeauty.com and we'll answer any question!";
   }
-
-  // Chat — full conversation memory
-  const chatHistory = [];
-
-  const SYSTEM_PROMPT = `You are a warm, friendly assistant for Glamour Hair & Beauty salon. You can answer any question the customer has — not just about the salon. Be natural, helpful, and conversational like a real person. Keep replies concise.
-
-Salon details (use when relevant):
-Services:
-- Hair Styling: Box Braids $80+, Knotless Braids $100+, Twist Out $45+, Blowout & Press $55+, Bantu Knots $50+, Trim & Shape $35+, Cornrows $60+, Locs Maintenance $70+
-- Hair Colouring: Balayage $120+, Full Highlights $100+, Ombre $110+, Full Colour $80+, Root Touch-Up $60+, Colour Correction $150+
-- Nail Care: Classic Manicure $25+, Gel Manicure $40+, Acrylic Full Set $55+, Nail Art $15+ add-on, Pedicure $35+, Gel Pedicure $50+
-- Facial Treatments: Classic $60+, Deep Cleanse $75+, Brightening $85+, Anti-Aging $100+, Hydrating Mask $70+
-- Lash & Brow: Classic Extensions $80+, Volume Lashes $100+, Lash Lift & Tint $65+, Brow Shaping $25+, Brow Tint $20+, Brow Lamination $55+
-- Head Massage: 30 min $30+, Deep Oil 45 min $50+, Aromatherapy 60 min $70+, Hot Towel Ritual $60+
-
-Hours: Mon–Sun 7am–9pm
-Location: 123 Beauty Lane, Glamour City
-Phone: +254 (555) 987-6543
-Email: hello@glamourbeauty.com
-
-For bookings, guide them to scroll down to the booking form on the page.`;
 
   function toggleChat() {
     const w = document.getElementById('chatWindow');
     w.classList.toggle('open');
   }
 
-  async function sendMsg() {
+  function sendMsg() {
     const input = document.getElementById('chatInput');
     const msgs = document.getElementById('chatMessages');
     const text = input.value.trim();
     if (!text) return;
 
-    // Add to history & display
-    chatHistory.push({ role: 'user', content: text });
+// Show user message
     msgs.innerHTML += `<div class="msg user">${text}</div>`;
     input.value = '';
     msgs.scrollTop = msgs.scrollHeight;
@@ -117,24 +138,13 @@ For bookings, guide them to scroll down to the booking form on the page.`;
     msgs.appendChild(typing);
     msgs.scrollTop = msgs.scrollHeight;
 
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: chatHistory })
-      });
-      const data = await res.json();
-      const reply = data.reply || "Sorry, I couldn't respond right now. Please call us!";
-      // Save assistant reply to history
-      chatHistory.push({ role: 'assistant', content: reply });
-
+    // Get reply after short delay to feel natural
+    setTimeout(() => {
+      const reply = getRuleBasedReply(text);
       typing.remove();
       msgs.innerHTML += `<div class="msg bot">${reply}</div>`;
-    } catch {
-      typing.remove();
-      msgs.innerHTML += `<div class="msg bot">Sorry, something went wrong. Please call us at +254 (555) 987-6543!</div>`;
-    }
-    msgs.scrollTop = msgs.scrollHeight;
+      msgs.scrollTop = msgs.scrollHeight;
+    }, 800);
   }
 
   // ── MOBILE MENU ──
@@ -220,4 +230,4 @@ For bookings, guide them to scroll down to the booking form on the page.`;
     const thanks = document.getElementById('review-thanks');
     thanks.style.display = 'block';
     setTimeout(() => thanks.style.display = 'none', 3000);
-  }
+      }
