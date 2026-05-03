@@ -118,19 +118,13 @@ For bookings, guide them to scroll down to the booking form on the page.`;
     msgs.scrollTop = msgs.scrollHeight;
 
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: chatHistory
-        })
+        body: JSON.stringify({ messages: chatHistory })
       });
       const data = await res.json();
-      const reply = data.content?.map(b => b.text || '').join('') || "Sorry, I couldn't respond right now. Please call us!";
-
+      const reply = data.reply || "Sorry, I couldn't respond right now. Please call us!";
       // Save assistant reply to history
       chatHistory.push({ role: 'assistant', content: reply });
 
